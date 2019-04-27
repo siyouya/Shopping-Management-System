@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="stupid:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/stupid_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Shopping-Management-System/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Shopping-Management-System" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql:mysql-connector-java:8.0.15" />
+          <element id="library" level="project" name="javax:javaee-api:7.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
