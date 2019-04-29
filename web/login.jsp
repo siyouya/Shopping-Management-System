@@ -2,6 +2,7 @@
 <%@ page import="com.etc.dao.*" %>
 <%@ page import="com.etc.entity.*" %>
 <%
+
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -107,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 		  <!--登录-->
-		  <form action="dologin.jsp" method="post" id="DR">
+		  <form action="Servlet" method="post" id="DR">
 			  <div class="switch-wrap switch-wrap-signin active">
 				  <!--手机号-->
 				  <ul class="phoneMumber-list wall-form-ipt-list active">
