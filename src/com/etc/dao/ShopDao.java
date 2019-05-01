@@ -16,7 +16,7 @@ public class ShopDao {
 			public Shop queryAllShop(int userid){
 
 					String sql  = "select * from shop where fuid =? ";
-					CachedRowSet crs   = dbutil.Query(sql,userid);
+					CachedRowSet crs = dbutil.Query(sql,userid);
 					Shop shop =new Shop();
 					try {
 						while(crs.next()){
