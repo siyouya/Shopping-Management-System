@@ -26,12 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <%
         String sid  = request.getParameter("sid");
-
         UserDao userDao=new UserDao();
         Seller seller= userDao.findbid(sid);
         int shop=seller.getBid();
         String shopname=seller.getShopname();
-
         out.print(shopname);
         ShopDao shopDao=new ShopDao();
         userDao.deleteShop(sid);

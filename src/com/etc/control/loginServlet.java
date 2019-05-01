@@ -13,7 +13,7 @@ import com.etc.dao.UserDao;
 
 
 
-@WebServlet(name = "loginServlet")
+@WebServlet(name = "loginServlet",urlPatterns = "/loginServlet")
 public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                      doGet(request,response);

@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body>
   <div class="main" style="width: 750px">
-  <form action="dochangeuser.jsp"  method="post">
+  <form action="personInfoServlet?option=dochangeuser"   method="post">
 	  <ul class="wall-form-ipt-list">
 		  <li>
 			  用户ID： <input type="text"  name="userid" maxlength="128"  request="request" value="<%=userid %>">

@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body  style="background: url(body1.jpg)">
   <div class="wall-warp">
 	  <h3 align="center">注册</h3>
-	  <form id="sign_up" action="douserAdd.jsp" method="post">
+	  <form id="sign_up" action="adduserServlet" method="post">
 		  <input id="j-token" type="hidden" name="csrf" >
 		  <ul class="wall-form-ipt-list">
 			  <li>

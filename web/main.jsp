@@ -161,17 +161,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="layer">
       <ul  id="menu"><div><h4 style="text-align: center;font-size: 2em;"><em>欢迎来到集美二手交易网</em></h4></div>
           <li class="">
-              <a href="personInfo.jsp" option="user"  ><img class="logo" src="img/person.png" >&nbsp;&nbsp;个人信息</a>
+              <a href="MainServlet?option=user"  ><img class="logo" src="img/person.png" >&nbsp;&nbsp;个人信息</a>
           </li>
           <li class="">
           <li class="">
-              <a href="personInfo.jsp"option="changeuser"  ><img src="img/update.png">&nbsp;&nbsp;修改信息</a>
+              <a href="MainServlet?option=changeuser"  ><img src="img/update.png">&nbsp;&nbsp;修改信息</a>
           </li>
           <li class=""><li class="">
-              <a href="personInfo.jsp" option="chat" ><img src="img/shoppingcar.png">&nbsp;&nbsp;联系管理员</a>
+              <a href="MainServlet?option=chat" ><img src="img/shoppingcar.png">&nbsp;&nbsp;联系管理员</a>
           </li>
           <li class=""><li class="">
-              <a href="personInfo.jsp"option="seller" ><img src="img/Sell.png">&nbsp;&nbsp;我要卖东西</a>
+              <a href="MainServlet?option=seller" ><img src="img/Sell.png">&nbsp;&nbsp;我要卖东西</a>
           </li>
           <li class=""></ul><br />
       <div id="main">

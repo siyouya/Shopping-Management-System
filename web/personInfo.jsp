@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul>
       </div>
       <div class="main2">
-          <iframe id="info1" src="user.jsp">
+          <iframe id="info1" src="<%= session.getAttribute("jsp") %>">
 
           </iframe>
       </div><div class="layui-layer layui-layer-iframe layui-layer-border" id="layui-layer1" type="iframe" times="1" showtime="0" contype="string" style="float: " ><iframe id="layui-layer-iframe1" name="layui-layer-iframe1" onload="this.className='';" class="" frameborder="0" src="box.html" style="width: 260px">

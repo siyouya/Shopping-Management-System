@@ -49,6 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         %>
     <div class="plan">
         <h3><%=seller.getShopname() %><span>上架中</span></h3>
+
         <a class="signup" href="deleteshop.jsp?sid=<%=seller.getSid()  %> " >删除商品</a>
         <ul >
             <li>商品名称 <b><%=seller.getShopname() %></b></li>
@@ -61,32 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             }
         %>
 
-    <form action="doAdd.jsp" method="post"  id="form1">
-    <%--<li>--%>
-        <%--<input id="name2" name="name2" type="hidden">--%>
-
-       <%--<input id="shopname" name="shopname" type="text" placeholder="商品名称">--%>
-
-    <%--</li>--%>
-    <%--<li>--%>
-        <%--<input id="price2" name="price2" type="hidden">--%>
-
-
-        <%--<input id="price" name="price" type="text" placeholder="商品价格">--%>
-
-    <%--</li>--%>
-    <%--<li>--%>
-       <%--请输入商品类型 <select name="shoptypename">--%>
-        <%--<option value="1">生活类</option>--%>
-        <%--<option value="2">学习类</option>--%>
-        <%--<option value="3">办公类</option>--%>
-        <%--</select>--%>
-
-    <%--</li>--%>
-        <%--<li>--%>
-            <%--<input id="sumbit2" name="submit2" type="hidden">--%>
-            <%--<input id="sumbit" name="submit" type="submit" value="上架">--%>
-        <%--</li>--%>
+    <form action="personInfoServletoption=addshop" method="post"  id="form1">
 
 
         <div class="plan">

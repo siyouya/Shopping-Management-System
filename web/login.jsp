@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  border-radius: 22px;
 
 	  }a.tijiao{
-		   text-decoration: none;
+		   text-decoration: none;y
 	   }
   </style>
 
@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 		  <!--登录-->
-		  <form action="Servlet" method="post" id="DR">
+		  <form action="loginServlet" method="post" id="DR">
 			  <div class="switch-wrap switch-wrap-signin active">
 				  <!--手机号-->
 				  <ul class="phoneMumber-list wall-form-ipt-list active">
