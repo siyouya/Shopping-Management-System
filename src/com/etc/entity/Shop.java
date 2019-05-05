@@ -1,12 +1,32 @@
 package com.etc.entity;
-
+import java.sql.Blob;
 public class Shop {
-	// Ù–‘
+
 	private int bid;
 	private String shopname;
 	private  int price;
 	private ShopType bt;
 	private User fuid;
+	private String detail;
+	private byte[]  content;
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+
+
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	public User getFuid() {
 		return fuid;
@@ -70,17 +90,25 @@ public class Shop {
 		this.bt = bt;
 	}
 
+	public Shop(int bid, String shopname, int price,byte[] content) {
+		this.content=content;
+		this.bid = bid;
+		this.shopname = shopname;
+		this.price = price;
+	}
+
 	public Shop(int bid, String shopname, int price) {
 		this.bid = bid;
 		this.shopname = shopname;
 		this.price = price;
 	}
 
-	public Shop(int bid, String shopname, int price, ShopType bt, User fuid) {
+	public Shop(int bid, String shopname, int price, ShopType bt, User fuid, String detail) {
 		this.bid = bid;
 		this.shopname = shopname;
 		this.price = price;
 		this.bt = bt;
 		this.fuid = fuid;
+		this.detail = detail;
 	}
 }

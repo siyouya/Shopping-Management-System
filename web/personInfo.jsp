@@ -105,8 +105,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <a onclick="goto('chat.html')"><img src="img/shoppingcar.png">联系管理员</a>
           </li>
               <li class=""><li class="">
-              <a  onclick="goto('seller.jsp')" ><img src="img/Sell.png">我要卖东西</a>
+              <a  onclick="goto('addshopInfo.jsp')" ><img src="img/Sell.png">我要卖东西</a>
           </li>
+              </li>
+              <li class=""><li class="">
+              <a  onclick="goto('seller.jsp')" ><img src="img/Sell.png">上架中物品</a>
+          </li>
+              </li>
+              <li class=""><li class="">
+              <a  href="main.jsp"><img src="img/Sell.png">返回主页</a>
+          </li>
+
 
           </ul>
       </div>

@@ -51,7 +51,7 @@ public class UserDao {
 			return user;
 		}
 		public Seller findbid(String  Sid){
-			String sql  = "select * from  seller where sid=?";
+			String sql  = "select * from  seller where sid=? ";
 			CachedRowSet crs   = dbutil.Query(sql,Sid);
 			Seller seller =new Seller();
 			try {

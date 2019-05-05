@@ -54,33 +54,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul >
             <li>商品名称 <b><%=seller.getShopname() %></b></li>
             <li>联系电话 <b><%=user.getTel() %></b></li>
-            <li>所在地址 <b><%=user.getAddress() %></b></li>
             <li>价格<b><%=seller.getPrice() %></b></li>
+            <a class="signup" href="addshopInfo.jsp?sid=<%=seller.getSid()  %> " >详细商品</a>
         </ul>
     </div>
         <%
             }
         %>
 
-    <form action="personInfoServletoption=addshop" method="post"  id="form1">
+    <%--<form action="personInfoServletoption=addshop" method="post"  id="form1">--%>
 
 
-        <div class="plan">
-            <h3><input id="shopname" name="shopname" type="text" placeholder="商品名称" style="border: none;"><span>准备上架</span></h3>
-            <a class="signup" onclick="document.getElementById('form1').submit();" >上架</a>
-            <ul >
-                <li> <b> <input id="price" name="price" type="text" placeholder="商品价格" style="border: none;"></b></li>
-                <li> <b><select name="shoptypename">
-                    <option value="1">生活类</option>
-                    <option value="2">学习类</option>
-                    <option value="3">办公类</option>
-                </select></b></li>
-                <li> <b><input id="phonenum" name="phonenum" type="" placeholder="联系电话" style="border: none;"></b></li>
-                <li><input id="adress" name="adress" type="text" placeholder="联系地址" style="border: none;"> <b></b></li>
-            </ul>
-        </div>
+        <%--<div class="plan">--%>
+            <%--<h3><input id="shopname" name="shopname" type="text" placeholder="商品名称" style="border: none;"><span>准备上架</span></h3>--%>
+            <%--<a class="signup" onclick="document.getElementById('form1').submit();" >上架</a>--%>
+            <%--<ul >--%>
+                <%--<li> <b> <input id="price" name="price" type="text" placeholder="商品价格" style="border: none;"></b></li>--%>
+                <%--<li> <b><select name="shoptypename">--%>
+                    <%--<option value="1">生活类</option>--%>
+                    <%--<option value="2">学习类</option>--%>
+                    <%--<option value="3">办公类</option>--%>
+                <%--</select></b></li>--%>
+                <%--<li> <b><input id="phonenum" name="phonenum" type="" placeholder="联系电话" style="border: none;"></b></li>--%>
+                <%--<li><input id="adress" name="adress" type="text" placeholder="联系地址" style="border: none;"> <b></b></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
 
-    </form>
+    <%--</form>--%>
     </div>
 </ul>
    </div>

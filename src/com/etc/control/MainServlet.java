@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import com.etc.dao.*;
+import com.etc.entity.*;
+
 
 @WebServlet(name = "MainServlet",urlPatterns = "/MainServlet")
 public class MainServlet extends HttpServlet {
@@ -15,7 +18,7 @@ public class MainServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+                UserDao userdao=new UserDao();
                 String  option=request.getParameter("option");
                           HttpSession session =  request.getSession(true);
                 if (option.equals("user")){
@@ -34,6 +37,9 @@ public class MainServlet extends HttpServlet {
                     String seller="seller.jsp";
                     session.setAttribute("jsp",seller);
                     request.getRequestDispatcher("personInfo.jsp").forward(request,response);
+                }else if(option.equals("1")){
+                    userdao.queryseller(1);
+
                 }
 
 

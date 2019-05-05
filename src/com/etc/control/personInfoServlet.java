@@ -45,7 +45,7 @@ public class personInfoServlet extends HttpServlet {
                     session.setAttribute("shoptypename",shoptypename);
                     session.setAttribute("price",price);
                     ShopDao shopDao =new ShopDao();
-                    shopDao.addShop(shopname,price,shoptypename,uid);
+                 //   shopDao.addShop(shopname,price,shoptypename,uid);
                     UserDao userDao=new UserDao();
                     Shop shop=shopDao.queryAllShop(uid);
                     int shop1= shop.getBid();

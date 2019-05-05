@@ -179,7 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="tbh-discover-goods clearfix">
                   <h3 class="mod-hd com-hd"><em>热门商品</em></h3>
                   <ul class="goods-list">
-                      <a href="//www.taobao.com/markets/tbhome/yhh-detail?contentId=2500000200348015010&amp;scm=1007.12846.65991.0&amp;pvid=3ab9700c-1a31-4efe-b7f2-6ba229cc5a1c" role="listitem" aria-posinset="0" aria-setsize="6" class="">
+                      <a href="shopInfo.jsp?option=1" role="listitem" aria-posinset="0" aria-setsize="6" class="">
                           <div class="img-wrapper">
                               <img class="a-all" src="//img.alicdn.com/imgextra/i1/3107144874/TB2i9NXbwkLL1JjSZFpXXa7nFXa_!!3107144874-0-beehive-scenes.jpg_180x180xzq90.jpg_.webp" aria-labelledby="dg-item-tl-0">
                           </div>
