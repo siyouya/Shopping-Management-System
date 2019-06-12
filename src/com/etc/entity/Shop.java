@@ -1,5 +1,5 @@
 package com.etc.entity;
-import java.sql.Blob;
+
 public class Shop {
 
 	private int bid;
@@ -8,25 +8,8 @@ public class Shop {
 	private ShopType bt;
 	private User fuid;
 	private String detail;
-	private byte[]  content;
-	public byte[] getContent() {
-		return content;
-	}
-
-	public void setContent(byte[] content) {
-		this.content = content;
-	}
-
-
-
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
+	private String picture;
+	private String size;
 
 	public User getFuid() {
 		return fuid;
@@ -68,6 +51,29 @@ public class Shop {
 		this.bt = bt;
 	}
 
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
 
 	@Override
 	public String toString() {
@@ -76,6 +82,10 @@ public class Shop {
 				", shopname='" + shopname + '\'' +
 				", price=" + price +
 				", bt=" + bt +
+				", fuid=" + fuid +
+				", detail='" + detail + '\'' +
+				", picture='" + picture + '\'' +
+				", size='" + size + '\'' +
 				'}';
 	}
 
@@ -90,12 +100,7 @@ public class Shop {
 		this.bt = bt;
 	}
 
-	public Shop(int bid, String shopname, int price,byte[] content) {
-		this.content=content;
-		this.bid = bid;
-		this.shopname = shopname;
-		this.price = price;
-	}
+
 
 	public Shop(int bid, String shopname, int price) {
 		this.bid = bid;
@@ -110,5 +115,16 @@ public class Shop {
 		this.bt = bt;
 		this.fuid = fuid;
 		this.detail = detail;
+	}
+
+	public Shop(int bid, String shopname, int price, ShopType bt, User fuid, String detail, String picture, String size) {
+		this.bid = bid;
+		this.shopname = shopname;
+		this.price = price;
+		this.bt = bt;
+		this.fuid = fuid;
+		this.detail = detail;
+		this.picture = picture;
+		this.size = size;
 	}
 }

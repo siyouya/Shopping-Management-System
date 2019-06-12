@@ -31,7 +31,6 @@ public class adduserServlet extends HttpServlet {
         user.setAge(age);
         user.setAddress(address);
         userdao.addUserez(name,password,tel,age ,address);
-        JOptionPane.showMessageDialog(null,"注册成功","通知",JOptionPane.INFORMATION_MESSAGE);
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }

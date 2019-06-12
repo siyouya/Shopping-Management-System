@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  <li>
 			   <input id="submit" name="submit2" maxlength="128" type="hidden" maxlength="128" >
 
-			   <input  name="submit"  maxlength="128"  type="submit"  align="center" value="保存">
+			   <input  name="submit"  maxlength="128"  type="submit" style="margin-left: 5em;padding-left: 45px; background: #fff;" align="center" value="保存">
 
 
 		  </li>

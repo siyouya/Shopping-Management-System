@@ -15,6 +15,7 @@ public class personInfoServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
                     doGet(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +38,9 @@ public class personInfoServlet extends HttpServlet {
 
                 }else if(option.equals("addshop")){
 
+                    String picture=(String)session.getAttribute("picture");
+                    String size=request.getParameter("size");
+                    String detail=request.getParameter("detail");
                     int uid=(int)session.getAttribute("uid");
                     String shopname  = request.getParameter("shopname");
                     int shoptypename  = Integer.valueOf(request.getParameter("shoptypename"));
@@ -45,11 +49,12 @@ public class personInfoServlet extends HttpServlet {
                     session.setAttribute("shoptypename",shoptypename);
                     session.setAttribute("price",price);
                     ShopDao shopDao =new ShopDao();
-                 //   shopDao.addShop(shopname,price,shoptypename,uid);
+                    shopDao.addShop(shopname,price,shoptypename,uid,detail,picture,size);
                     UserDao userDao=new UserDao();
                     Shop shop=shopDao.queryAllShop(uid);
                     int shop1= shop.getBid();
                     userDao.seller(uid,shopname,price,shop1);
+
                     request.getRequestDispatcher("seller.jsp").forward(request,response);
                 }
 

@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>商品名称 <b><%=seller.getShopname() %></b></li>
             <li>联系电话 <b><%=user.getTel() %></b></li>
             <li>价格<b><%=seller.getPrice() %></b></li>
-            <a class="signup" href="addshopInfo.jsp?sid=<%=seller.getSid()  %> " >详细商品</a>
+            <a class="signup" href="shopInfo.jsp?sid=<%=seller.getSid()  %> " >详细商品</a>
         </ul>
     </div>
         <%

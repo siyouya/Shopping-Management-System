@@ -44,10 +44,9 @@ public class ShopDao {
 						int bid=crs.getInt("bid");
 						String shopname  = crs.getString("shopname");
 						int price  =crs.getInt("price");
-						byte[] content;
-						content = crs.getBytes("content");
+					//	content = crs.getBytes("content");
 						//	InputStream in = content.getBinaryStream();
-					 	shop  = new Shop(bid,shopname,price,content);
+					 	shop  = new Shop(bid,shopname,price);
 					}
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -67,28 +66,15 @@ public class ShopDao {
 			   }
 
 
-			   public boolean addShop(String shopname, int price,int typeid, int uid,byte[] content){
+			   public boolean addShop(String shopname, int price,int typeid,int uid,String detail,String picture,String size){
 
-				   String sql  = "insert into shop VALUES(null,?,?,?,?,null,null,null,?); ";
+				   String sql  = "insert into shop VALUES(null,?,?,?,?,?,?,?); ";
 				   int result = 0;
-				   result  = dbutil.Update(sql,shopname,price,typeid,uid,content);
+				   result  = dbutil.Update(sql,shopname,price,typeid,uid,detail,picture,size);
 
 				   return result>0;
 
 			   }
-//				public boolean intobob(byte[] content){
-//				String sql="INSERT INTO bindata VALUES(null,?);
-//					int result = 0;
-//					result  = dbutil.Update(sql,content);
-//					return result>0;
-//				}
-
-
-
-
-
-
-
 
 
 }

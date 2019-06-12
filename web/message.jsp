@@ -14,6 +14,8 @@
 <center>
     <h2>${message}</h2>
     <img src="${path}">
+    <%   String path =(String)request.getAttribute("path"); %>
+    <%    session.setAttribute("path",path);%>
 </center>
 </body>
 </html>
