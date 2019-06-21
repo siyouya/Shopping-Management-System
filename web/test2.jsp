@@ -17,7 +17,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 </head>
 <body>
-购买成功
+  <form action="">
+      <select name="typid">
+          <option value="1">生活类</option>
+          <option value="2">学生类</option>
+          <option value="3">办公类</option>
+      </select>
+
+      /*public Shop queryAllShop(int typid){
+
+      String sql  = "select * from shop,shoptype where shop.typid =shoptype.typid  and typid = ？; ";
+      CachedRowSet crs = dbutil.Query(sql,typid);
+      Shop shop =new Shop();
+      try {
+      while(crs.next()){
+      int bid = crs.getInt("bid");
+      String shopname  = crs.getString("shopname");
+      int price   =crs.getInt("price");
+      shop  = new Shop(bid, shopname,price);
+      }
+      } catch (Exception e) {
+      e.printStackTrace();
+      }
+      return shop;
+      }
+     */
+  </form>
 
 </body>
 

@@ -18,7 +18,6 @@ public class MainServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                UserDao userdao=new UserDao();
                 String  option=request.getParameter("option");
                           HttpSession session =  request.getSession(true);
                 if (option.equals("user")){
@@ -33,12 +32,15 @@ public class MainServlet extends HttpServlet {
                     String chat="chat.html";
                     session.setAttribute("jsp",chat);
                     request.getRequestDispatcher("personInfo.jsp").forward(request,response);
+
                 }else if (option.equals("seller")){
                     String seller="seller.jsp";
                     session.setAttribute("jsp",seller);
                     request.getRequestDispatcher("personInfo.jsp").forward(request,response);
-                }else if(option.equals("1")){
-                    userdao.queryseller(1);
+                }else if(option.equals("order")){
+                   String order="order.jsp";
+                   session.setAttribute("jsp",order);
+                    request.getRequestDispatcher("personInfo.jsp").forward(request,response);
 
                 }
 

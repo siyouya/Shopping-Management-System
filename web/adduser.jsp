@@ -99,15 +99,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 
   </style>
+
+
+
+
+
+
   </head>
   <body  style="background: url(body1.jpg)">
   <div class="wall-warp">
 	  <h3 align="center">注册</h3>
-	  <form id="sign_up" action="adduserServlet" method="post">
+	  <form id="sign_up" action="adduserServlet" method="post"  >
 		  <input id="j-token" type="hidden" name="csrf" >
 		  <ul class="wall-form-ipt-list">
 			  <li>
-				  <input type="text"  name="username" maxlength="128"   request="request" placeholder="请输入用户名">
+				  <input type="text" id="uname" name="username" maxlength="128" onblur="docheck()"  request="request" placeholder="请输入用户名6-12字符英文加数字">
+				  <font  style="display: none;color: red" id="er1">您输入的用户名不规范，请重新输入</font>
 
 
 			  </li>
@@ -115,28 +122,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <li>
 				  <input id="j-password" name="password2" type="hidden">
 
-				  <input id="j-password_hide" name="password" type="password"  request="request" placeholder="请输入密码">
-
+				  <input id="j-password_hide" name="password" type="password" onblur="docheck1()" request="request" maxlength="15" placeholder="请输入密码">
+				  <font  style="display: none;color: red" id="er2">请输入至少6为密码</font>
 
 
 			  </li><br />
 			  <li>
 				  <input id="" name="tel2" type="hidden">
 
-				  <input id="phonenum" name="tel" type="text" request="request" placeholder="手机号码">
-
+				  <input id="phonenum" name="tel" type="text" request="request" onblur="docheck2()" placeholder="手机号码">
+				  <font  style="display: none;color: red" id="er3">请重新输入正确的手机号</font>
 			  </li></br>
 			  <li>
 				  <input id="2" name="age2" type="hidden">
 
-				  <input id="age" name="age" type="test" request="request" placeholder="请输入年龄">
-
+				  <input id="age" name="age" type="test" request="request" onblur="docheck3()" placeholder="请输入年龄">
+				  <font  style="display: none;color: red" id="er4">请输入正确的年龄</font>
 			  </li><br />
 			  <li>
 				  <input id="3" name="address2" type="hidden">
 
 				  <input id="address" name="address" type="address"  request="request" placeholder="请输入地址">
-
+				  <font  style="display: none;color: red" id="er5"></font>
 
 
 			  </li><br />
@@ -148,5 +155,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
   </div>
+
+  <script type="text/javascript">
+	  function docheck(){
+		  var username=/^[-_a-zA-Z0-9]{4,10}$/;
+		  if(!username.test(document.getElementById("uname").value) ){
+			  document.getElementById("er1").style.display='block';
+			  document.getElementById("uname").focus();
+
+		  }else{
+			  document.getElementById("er1").style.display='none';
+		  }
+		  function docheck1(){
+			  var username=/^[-_a-zA-Z0-9]{6,15}$/;
+			  if(!username.test(document.getElementById('j-password_hide').value) ){
+				  document.getElementById("er2").style.display='block';
+				  document.getElementById("j-password_hide").focus();
+
+			  }else{
+				  document.getElementById("er2").style.display='none';
+			  }
+		  }	  }
+	  function docheck2(){
+		  var username=/^[0-9]{11}$/;
+		  if(!username.test(document.getElementById("phonenum").value) ){
+			  document.getElementById("er3").style.display='block';
+			  document.getElementById("phonenum").focus();
+
+		  }else{
+			  document.getElementById("er3").style.display='none';
+		  }
+	  } function docheck3(){
+		  var username=/^[0-9]{1,2}$/;
+		  if(!username.test(document.getElementById("age").value) ){
+			  document.getElementById("er4").style.display='block';
+			  document.getElementById("uage").focus();
+
+		  }else{
+			  document.getElementById("er4").style.display='none';
+		  }
+	  }
+
+
+		/*  var phone =/^1[3][4][5][7][8]\d{9}$/
+		  if(!phone.test(document.getElementById("phonenum").value)){
+			  alert("手机号码有误，请重新输入,目前指出前两位13、14、15、16、17、18手机号码");
+			  document.forma.name.focus();
+			  return  false;
+		  }
+		  return true;
+	  }*/
+
+
+  </script>
+
   </body>
 </html>

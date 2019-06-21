@@ -3,6 +3,7 @@
 <%@ page import="com.etc.dao.ShopDao" %>
 <%@ page import="com.etc.dao.UserDao" %>
 <%@ page import="com.etc.entity.Seller" %>
+<%@ page import="com.etc.dao.SellerDao" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -25,15 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%
-        String sid  = request.getParameter("sid");
-        UserDao userDao=new UserDao();
-        Seller seller= userDao.findbid(sid);
-        int shop=seller.getBid();
-        String shopname=seller.getShopname();
-        out.print(shopname);
-        ShopDao shopDao=new ShopDao();
-        userDao.deleteShop(sid);
-        shopDao.deleteShop(shop);
+        int  sid  = Integer.valueOf(request.getParameter("sid"));
+        ShopDao shopdao=new ShopDao();
+        shopdao.deleteShop(sid);
         request.getRequestDispatcher("seller.jsp").forward(request, response);
      %>
   </body>

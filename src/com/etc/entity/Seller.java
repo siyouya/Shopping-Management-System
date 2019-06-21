@@ -74,12 +74,12 @@ public class Seller {
         super();
     }
 
-//    public Seller( int uid, Shop sst, String shopname, int price) {
-//        this.sst=sst;
-//        this.uid = uid;
-//        this.shopname = shopname;
-//        this.price = price;
-//    }
+    public Seller( int uid, Shop sst, String shopname, int price) {
+        this.sst=sst;
+        this.uid = uid;
+        this.shopname = shopname;
+        this.price = price;
+    }
     public Seller(int sid,int uid ,String shopname, int price,Shop sst) {
         this.sid=sid;
         this.sst=sst;

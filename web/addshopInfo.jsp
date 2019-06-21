@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="layui-carousel" id="test1">
                   <div carousel-item>
                       <%--<div><img id="imgPre" src="" width="400" height = "400" /></div>--%>
-                      <div> <img src="${path}"   width="400" height = "400" ></div><%session.setAttribute("path",path);%>
+                      <div> <img src="${path}"  id="tu" width="400" height = "400" ></div><%session.setAttribute("path",path);%>
                       <%--<div>条目3</div>--%>
                       <%--<div>条目4</div>--%>
                       <%--<div>条目5</div>--%>
@@ -91,9 +91,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                               <input class="layui-form-label"   style="width: 150px" type="text"  name="shopname"  id="shopname" >
                           </div>
                           <div class="layui-form-item">
-                              <label class="layui-form-label">价&nbsp;&nbsp;&nbsp;&nbsp;格</label>
+                              <label class="layui-form-label" >价&nbsp;&nbsp;&nbsp;&nbsp;格</label>
                               <div class="layui-input-block">
-                                  <input class="layui-form-label" style="width: 150px" type="text"  name="price" id="price" %>
+                                  <input class="layui-form-label" style="width: 150px" type="text" onblur="docheck1()" name="price" id="price" %>
+                                  <font  style="display: none;color: red;font-size:large" id="er2">错误</font>
                               </div>
                           </div>
                           <div class="layui-form-item">
@@ -110,14 +111,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   </select>
                               </div>
                           </div>
+                          <div class="layui-tab" style="margin-top: 200px;margin-left: -400px;">
+                              <ul class="layui-tab-title">
+                                  <li class="layui-this">商品介绍</li>
+                                  <li>规格参数</li>
+                              </ul>
+                              <div class="layui-tab-content">
+                                  <div class="layui-tab-item layui-show" ><textarea cols="100" rows="13" name="detail"  id="detail"></textarea></div>
+                                  <div class="layui-tab-item" ><textarea cols="100" rows="13" name="size"  id="size"></textarea></div>
+
+                              </div>
+                          </div>
                       </form>
                   </div>
-                  <div class="layui-card-body">
-                      <form method="post" action="UploadServlet" enctype="multipart/form-data">
-                          <input class="layui-btn layui-bg-blue" type="submit" value="上传图片" />
+                  <div class="layui-card-body" style="margin-top: -400px">
+                      <form method="post" action="UploadServlet" enctype="multipart/form-data" id="upimag">
+                          <input class="layui-btn layui-bg-blue" type="submit"  value="上传图片" />
                           <br/><br/>
 
-                          <input type="file" name="uploadFile" id="imgUp" onchange="preImg(this.id,'imgPre');" />
+                          <input type="file" name="uploadFile" id="imgUp" onclick="preImg(this.id,'imgPre');" />
                           </label>
                       </form>
                       <a> <input type="hidden"></a>
@@ -126,21 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
           </div>
       </div>
-      <div class="layui-tab" style="margin-top: 50px">
-          <ul class="layui-tab-title">
-              <li class="layui-this">商品介绍</li>
-              <li>规格参数</li>
-              <li>包装售后</li>
-              <li>评价查看</li>
-          </ul>
-          <div class="layui-tab-content">
-              <div class="layui-tab-item layui-show" ><textarea cols="100" rows="13" name="detail"  id="detail"></textarea></div>
-              <div class="layui-tab-item" ><textarea cols="100" rows="13" name="size"  id="size"></textarea></div>
-              <div class="layui-tab-item"></div>
-              <div class="layui-tab-item">内容4</div>
-              <div class="layui-tab-item">内容5</div>
-          </div>
-      </div>
+
   </div>
 
   </body>
@@ -179,8 +177,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           var url = getFileUrl(sourceId);
           var imgPre = document.getElementById(targetId);
           imgPre.src = url;
+          //setTimeout(document.getElementById('upimag').submit(),1000);
+          document.getElementById('upimag').submit();
+          window.location.reload()
       }
+      function docheck1(){
+          var username=/^[0-9]{0,6}$/;
+          if(!username.test(document.getElementById('price').value) ){
+              document.getElementById("er2").style.display='block';
+              document.getElementById("price").focus();
 
+          }else{
+              document.getElementById("er2").style.display='none';
+          }
+      }
 
 
   </script>

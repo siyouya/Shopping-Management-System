@@ -10,6 +10,7 @@ public class Shop {
 	private String detail;
 	private String picture;
 	private String size;
+	private int state;
 
 	public User getFuid() {
 		return fuid;
@@ -75,6 +76,14 @@ public class Shop {
 		this.size = size;
 	}
 
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
 		return "Shop{" +
@@ -86,6 +95,7 @@ public class Shop {
 				", detail='" + detail + '\'' +
 				", picture='" + picture + '\'' +
 				", size='" + size + '\'' +
+				", state=" + state +
 				'}';
 	}
 
@@ -93,14 +103,23 @@ public class Shop {
 		super();
 	}
 
-	public Shop(int bid, String shopname, int price, ShopType bt) {
+	public Shop(int bid, String shopname, int price,String picture,int state) {
 		this.bid = bid;
+		this.picture=picture;
 		this.shopname = shopname;
 		this.price = price;
-		this.bt = bt;
+		this.state=state;
+
 	}
 
 
+
+	public Shop(int bid, String shopname, int price,int state) {
+		this.bid = bid;
+		this.shopname = shopname;
+		this.price = price;
+		this.state=state;
+	}
 
 	public Shop(int bid, String shopname, int price) {
 		this.bid = bid;
@@ -117,7 +136,16 @@ public class Shop {
 		this.detail = detail;
 	}
 
-	public Shop(int bid, String shopname, int price, ShopType bt, User fuid, String detail, String picture, String size) {
+	public Shop(int bid, String shopname, int price ,  String picture,String detail, String size) {
+		this.bid = bid;
+		this.shopname = shopname;
+		this.price = price;
+		this.detail = detail;
+		this.picture = picture;
+		this.size = size;
+	}
+
+	public Shop(int bid, String shopname, int price, ShopType bt, User fuid, String detail, String picture, String size, int state) {
 		this.bid = bid;
 		this.shopname = shopname;
 		this.price = price;
@@ -126,5 +154,6 @@ public class Shop {
 		this.detail = detail;
 		this.picture = picture;
 		this.size = size;
+		this.state = state;
 	}
 }

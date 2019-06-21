@@ -111,6 +111,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <li class=""><li class="">
               <a  onclick="goto('seller.jsp')" ><img src="img/Sell.png">上架中物品</a>
           </li>
+              <li class=""><li class="">
+              <a  onclick="goto('order.jsp')" ><img src="img/Sell.png">我的订单</a>
+          </li>
               </li>
               <li class=""><li class="">
               <a  href="main.jsp"><img src="img/Sell.png">返回主页</a>
@@ -123,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <iframe id="info1" src="<%= session.getAttribute("jsp") %>">
 
           </iframe>
-      </div><div class="layui-layer layui-layer-iframe layui-layer-border" id="layui-layer1" type="iframe" times="1" showtime="0" contype="string" style="float: " ><iframe id="layui-layer-iframe1" name="layui-layer-iframe1" onload="this.className='';" class="" frameborder="0" src="box.html" style="width: 260px">
+      </div><div class="layui-layer layui-layer-iframe layui-layer-border" id="layui-layer1" type="iframe" times="1" showtime="0" contype="string"  ><iframe id="layui-layer-iframe1" name="layui-layer-iframe1" onload="this.className='';" class="" frameborder="0" src="box.html" style="width: 260px">
 
   </iframe>
   </div>

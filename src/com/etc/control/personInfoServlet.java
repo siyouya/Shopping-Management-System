@@ -53,7 +53,8 @@ public class personInfoServlet extends HttpServlet {
                     UserDao userDao=new UserDao();
                     Shop shop=shopDao.queryAllShop(uid);
                     int shop1= shop.getBid();
-                    userDao.seller(uid,shopname,price,shop1);
+                    SellerDao sellerDao=new SellerDao();
+                    sellerDao.seller(uid,shopname,price,shop1);
 
                     request.getRequestDispatcher("seller.jsp").forward(request,response);
                 }
