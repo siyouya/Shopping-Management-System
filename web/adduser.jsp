@@ -104,7 +104,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-
   </head>
   <body  style="background: url(body1.jpg)">
   <div class="wall-warp">
@@ -122,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <li>
 				  <input id="j-password" name="password2" type="hidden">
 
-				  <input id="j-password_hide" name="password" type="password" onblur="docheck1()" request="request" maxlength="15" placeholder="请输入密码">
+				  <input id="password" name="password" type="password" onblur="docheck1()" request="request" maxlength="15" placeholder="请输入密码">
 				  <font  style="display: none;color: red" id="er2">请输入至少6为密码</font>
 
 
@@ -130,13 +129,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <li>
 				  <input id="" name="tel2" type="hidden">
 
-				  <input id="phonenum" name="tel" type="text" request="request" onblur="docheck2()" placeholder="手机号码">
+				  <input id="phonenum" name="tel"  request="request" onblur="docheck2()" placeholder="手机号码">
 				  <font  style="display: none;color: red" id="er3">请重新输入正确的手机号</font>
 			  </li></br>
 			  <li>
 				  <input id="2" name="age2" type="hidden">
 
-				  <input id="age" name="age" type="test" request="request" onblur="docheck3()" placeholder="请输入年龄">
+				  <input id="age" name="age"  request="request" onblur="docheck3()" placeholder="请输入年龄">
 				  <font  style="display: none;color: red" id="er4">请输入正确的年龄</font>
 			  </li><br />
 			  <li>
@@ -168,9 +167,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  }
 		  function docheck1(){
 			  var username=/^[-_a-zA-Z0-9]{6,15}$/;
-			  if(!username.test(document.getElementById('j-password_hide').value) ){
+			  if(!username.test(document.getElementById('password').value) ){
 				  document.getElementById("er2").style.display='block';
-				  document.getElementById("j-password_hide").focus();
+				  document.getElementById("password").focus();
 
 			  }else{
 				  document.getElementById("er2").style.display='none';

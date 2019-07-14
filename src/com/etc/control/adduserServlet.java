@@ -18,19 +18,14 @@ public class adduserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
         String name  = request.getParameter("username");
         String password =request.getParameter("password");
-        int tel =Integer.parseInt(request.getParameter("tel"));
+        String tel=request.getParameter("tel");
         int age=Integer.valueOf(request.getParameter("age"));
         String address =request.getParameter("address");
         UserDao userdao  = new UserDao();
-        User user=new User();
-        user.setName(name);
-        user.setPassword(password);
-        user.setTel(tel);
-        user.setAge(age);
-        user.setAddress(address);
-        userdao.addUserez(name,password,tel,age ,address);
+        userdao.addUser(name,password,tel,age ,address);
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }

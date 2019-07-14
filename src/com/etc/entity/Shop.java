@@ -1,5 +1,6 @@
 package com.etc.entity;
 
+
 public class Shop {
 
 	private int bid;
@@ -11,14 +12,6 @@ public class Shop {
 	private String picture;
 	private String size;
 	private int state;
-
-	public User getFuid() {
-		return fuid;
-	}
-
-	public void setFuid(User fuid) {
-		this.fuid = fuid;
-	}
 
 	public int getBid() {
 		return bid;
@@ -52,6 +45,14 @@ public class Shop {
 		this.bt = bt;
 	}
 
+	public User getFuid() {
+		return fuid;
+	}
+
+	public void setFuid(User fuid) {
+		this.fuid = fuid;
+	}
+
 	public String getDetail() {
 		return detail;
 	}
@@ -82,21 +83,6 @@ public class Shop {
 
 	public void setState(int state) {
 		this.state = state;
-	}
-
-	@Override
-	public String toString() {
-		return "Shop{" +
-				"bid=" + bid +
-				", shopname='" + shopname + '\'' +
-				", price=" + price +
-				", bt=" + bt +
-				", fuid=" + fuid +
-				", detail='" + detail + '\'' +
-				", picture='" + picture + '\'' +
-				", size='" + size + '\'' +
-				", state=" + state +
-				'}';
 	}
 
 	public Shop() {

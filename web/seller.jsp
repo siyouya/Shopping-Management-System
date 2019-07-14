@@ -46,7 +46,7 @@
                 List<Shop> list  =  shopDao.stateshop(userid);
                 for(Shop shop:list){
                     UserDao userdao=new UserDao();
-                    User user= userdao.queryUser(userid);
+                    User user= userdao.queryAllUserAndType4(userid);
                     int state=shop.getState();
                      String showstate;
                     if(state==0){
@@ -60,7 +60,7 @@
             <div class="plan">
                 <h3><%=shop.getShopname() %><span><%=showstate %></span></h3>
 
-                <a class="signup" href="deleteshop.jsp?sid=<%=shop.getBid()  %> " >删除商品</a>
+                <a class="signup" href="deleteshop.jsp?sid=<%=shop.getBid()  %> " >下架商品</a>
                 <ul >
                     <li>商品名称 <b><%=shop.getShopname() %></b></li>
                     <li>联系电话 <b><%=user.getTel() %></b></li>

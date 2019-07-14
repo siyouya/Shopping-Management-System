@@ -9,57 +9,20 @@ public class UserDao {
 			DBUtil  dbutil  = new DBUtil();
 
 
-		public User queryUser(int userid){
-			String sql  = "select * from seller,user where user.uid=seller.uid and user.uid=?";
-			CachedRowSet crs   = dbutil.Query(sql,userid);
-			User user =new User();
-			try {
-				while(crs.next()){
-					int uid = userid;
-					int tel = crs.getInt("tel");
-					int age = crs.getInt("age");
-					String name  = crs.getString("name");
-					String address  = crs.getString("address");
-					String password =crs.getString("password");
-					user  = new User(uid,name,password,age,tel,address);
-				}
-			} catch (Exception e) {
-				// TODO:
-			}
-			return user;
-		}
 
-
-
-		public List<User> queryUserAndType(int userid){
+		public List<User> queryUserbyid(int userid){
 			List<User> list  = new ArrayList<User>();
-			String sql  = "select user.uid ,user.name,user.password,user.age,user.tel,user.address   "
-					+ "from user where   uid=?";
+			String sql  = "select *   from user where   uid=?";
 			CachedRowSet crs   = dbutil.Query(sql,userid);
-
 			try {
 				while(crs.next()){
-					int uid = userid;
-					int tel = crs.getInt("tel");
-					int age=0;
-					if (crs.getInt("age")==0){
-						age=0;
-					}else {
-						age = crs.getInt("age");
-					}
-					String name  = crs.getString("name");
-					String password=crs.getString("password");
-					String address=null;
-					if (crs.getString("address").equals(null)){
-						 address="空";
-					}else {
-						address = crs.getString("address");
-					}
-
-
-					User user  = new User(uid,name,password,age,tel,address);
+					String tel = crs.getString("tel");
+					int age = crs.getInt("age");
+					String name = crs.getString("name");
+					String password = crs.getString("password");
+					String address = crs.getString("address");
+					User user = new User(userid , name, password, age, tel, address);
 					list.add(user);
-
 				}
 			} catch (Exception e) {
 				// TODO:
@@ -70,18 +33,7 @@ public class UserDao {
 
 
 
-
-
-		   public boolean deleteUser(String userid){
-			   String sql  = "DELETE from user  where uid = ?";
-			   int result = 0;
-			   result  = dbutil.Update(sql, userid);
-			   return result>0;
-			   
-		   }
-
-
-			public boolean addUserez(String name ,String password ,int tel,int age,String address ){
+			public boolean addUser(String name ,String password ,String tel,int age,String address ){
 				String sql  = "insert into user VALUES(null,?,?,?,?,?);";
 				int result = 0;
 				result  = dbutil.Update(sql, name,password,tel,age ,address);
@@ -111,28 +63,26 @@ public class UserDao {
 
 
 
-		public boolean changeuser(String name,String password,int age,int tel,String address,int userid){
+		public boolean changeuser(String name,String password,int age,String tel,String address,int userid){
 				String sql  = "Update  user  SET name=? ,password =? ,age=?,tel=? ,address=? where uid = ? ";
 			   int result = 0;
 			   result  = dbutil.Update(sql,name,password,age,tel,address,userid);
 			   return result>0;
 			   }
 
+
 			   public User queryAllUserAndType4(int userid) {
-				   String sql = "select user.uid ,user.name,user.password,user.age,user.tel,user.address  "
-						   + "from user ";
-				   CachedRowSet crs = dbutil.Query(sql);
+				   String sql = "select * from user  where uid=? ";
+				   CachedRowSet crs = dbutil.Query(sql,userid);
 				   User user = new User();
 				   try {
 					   while (crs.next()) {
-						   int uid = userid;
-						   int tel = crs.getInt("tel");
+						   String tel = crs.getString("tel");
 						   int age = crs.getInt("age");
 						   String name = crs.getString("name");
 						   String password = crs.getString("password");
 						   String address = crs.getString("address");
-
-						   user = new User(uid, name, password, age, tel, address);
+						   user = new User(userid , name, password, age, tel, address);
 					   }
 				   } catch (Exception e) {
 					   // TODO:
@@ -144,27 +94,7 @@ public class UserDao {
 
 
 
-    public User  user(int uid){
 
-        String sql  = "select * from user where uid=? ";
-        CachedRowSet crs   = dbutil.Query(sql,uid);
-        User user=new User();
-        try {
-            while(crs.next()){
-                int userid = uid;
-                int tel = crs.getInt("tel");
-                int age = crs.getInt("age");
-                String name  = crs.getString("name");
-                String password=crs.getString("password");
-                String address  = crs.getString("address");
-                user=new User(userid,name,password,age,tel,address);
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        return user;
-    }
 
 
 

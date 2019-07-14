@@ -28,9 +28,9 @@ public class MainServlet extends HttpServlet {
                     String changeuser="changeuser.jsp";
                     session.setAttribute("jsp",changeuser);
                     request.getRequestDispatcher("personInfo.jsp").forward(request,response);
-                }else if(option.equals("chat")){
-                    String chat="chat.html";
-                    session.setAttribute("jsp",chat);
+                }else if(option.equals("addshop")){
+                    String addshopInfo="addshopInfo.jsp";
+                    session.setAttribute("jsp",addshopInfo);
                     request.getRequestDispatcher("personInfo.jsp").forward(request,response);
 
                 }else if (option.equals("seller")){

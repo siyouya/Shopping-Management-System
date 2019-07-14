@@ -95,7 +95,7 @@
 
     Shop shop =shopdao.queryidShop(bid);
     Order order=orderDao.findorder(bid);
-    User user=userDao.user(uid);
+    User user=userDao.queryAllUserAndType4(uid);
 %>
 
     <div class="aspNetHidden">
@@ -111,8 +111,8 @@
         <div class="logo_ss" style="width: 1000px;">
             <ul class="logo">
                 <li>
-                    <a href="//www.uu898.com/" target="_blank">
-                        <img src="download.jpg" alt="logo" /></a>
+                    <a href="main.jsp" target="_blank">
+                        <img src="logo.PNG" alt="logo" /></a>
                     <span class="fb-right">收银台</span>
                 </li>
             </ul>
@@ -230,11 +230,14 @@
                                             </div>
                                     </li>
 
-
+                                    <ul>
                                 <div id="ect" class="zf_box_pad clearfix"  >
-                                    <a href="main.jsp">支付完成</a>
+
+                                    <a href="MainServlet?option=order">支付完成</a>
 
                                 </div>
+
+
                             </div>
 
                         </div>

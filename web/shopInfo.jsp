@@ -42,6 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
               <%
+                  int uid=(int)session.getAttribute("uid");
                   int bid=Integer.valueOf(request.getParameter("bid"));
                   ShopDao shopdao=new ShopDao();
                   Shop shop=shopdao.queryidShop(bid);
@@ -118,9 +119,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   <button class="layui-btn layui-btn-sm layui-bg-cyan">黑色</button>
                               </div>
                           </div>
-                          <div class="layui-card-body">
+                          <div class="layui-card-body" style="margin-left: 20px">
                               <a class="layui-btn layui-bg-red" onclick="document.getElementById('form2').submit();" >购买</a>
-                              <a  class="layui-btn layui-bg-black" href="chat.html"  >联系卖家</a></div>
+                              <a  class="layui-btn layui-bg-black" href="personInfo.jsp"  >联系卖家</a>
+                             <a  class="layui-btn layui-bg-black" href="main.jsp"  >返回主页面</a></div>
                           <div class="layui-tab" style="margin-top: 150px;margin-left: -300px">
                               <ul class="layui-tab-title">
                                   <li class="layui-this">商品介绍</li>

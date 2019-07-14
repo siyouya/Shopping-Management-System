@@ -138,5 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	  </div>
   </div>
+  <script src="js2/jingmoxukon.js"></script>
   </body>
+
 </html>

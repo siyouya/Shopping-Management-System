@@ -2,8 +2,7 @@
 <!-- 导包 -->
 <%@ page import="com.etc.dao.ShopDao" %>
 <%@ page import="com.etc.entity.Shop" %>
-<%@ page import="com.etc.dao.*" %>
-<%@ page import="com.etc.entity.*" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -25,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <!-- Google font -->
       <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">-->
-      <link href="css/style.css" rel="stylesheet">
+
       <link href="css/fontset.css" rel="stylesheet">
       <!-- Bootstrap -->
       <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -43,6 +42,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <!-- Custom stlylesheet -->
       <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link rel="stylesheet" href="./assets/layui/css/layui.css">
+      <link rel="stylesheet" href="./assets/css/chat.css">
 
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,105 +57,131 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
   <body background="body1.jpg">
-  <!-- HEADER -->
-  <%
+      <!-- HEADER -->
+          <%
       int userid=(int)session.getAttribute("uid");
       ShopDao shopdao=new ShopDao();
       List<Shop> list=shopdao.queryShop();
   %>
-  <header>
-      <!-- TOP HEADER -->
+      <div>
+      <ul class="layui-nav">
+          <li class="layui-nav-item">
+              <a href="main.jsp">控制台<span class="layui-badge">9</span></a>
+          </li>
+          <li class="layui-nav-item">
+              <a href="personInfo.jsp">个人中心<span class="layui-badge-dot"></span></a>
+          </li>
+          <li class="layui-nav-item">
+              <a href="javascript:void(0)"><img src="https://southseast.cc/images/avatar.gif" class="layui-nav-img">我</a>
+              <dl class="layui-nav-child">
+                  <dd><a href="personInfo.jsp">修改信息</a></dd>
+                  <dd><a href="personInfo.jsp">安全管理</a></dd>
+                  <dd><a href="login.jsp">退出</a></dd>
+              </dl>
+          </li>
+      </ul></div>
+      <header>
+          <!-- TOP HEADER -->
 
-      <!-- /TOP HEADER -->
+          <!-- /TOP HEADER -->
 
-      <!-- MAIN HEADER -->
-      <div id="header">
+          <!-- MAIN HEADER -->
+          <div id="header">
+              <!-- container -->
+              <div class="container">
+                  <!-- row -->
+                  <div class="row">
+                      <!-- LOGO -->
+                      <div class="col-md-3">
+                          <div class="header-logo">
+                              <a href="#" class="logo">
+                                  <img src="./img/logo.png" alt="">
+                              </a>
+                          </div>
+                      </div>
+                      <!-- /LOGO -->
+                      <form  action="doSellerServlet"  id="form1">
+                          <!-- SEARCH BAR -->
+                          <div class="col-md-6">
+                              <div class="header-search">
+                                  <%--<form action="doSellerServlet"   id="form1">--%>
+
+                                  <select class="input-select" name="shoptype" value="0" style=" margin-right: -4px;border-radius: 40px 0px 0px 40px;">
+                                      <option value="0">全部</option>
+                                      <option value="1">生活类</option>
+                                      <option value="2">学习类</option>
+                                      <option value="3">办公类</option>
+                                  </select>
+                                  <%--<input class="input"  type="hidden" name="shopname"  value="二手书">--%>
+                                  <input class="input"  style=" width: calc(100% - 260px);margin-right: -4px;color: darkgray;margin-top: 1px" value="" onfocus="valuechange(this)" onblur="valuechangeback(this)" name="shopname"  placeholder="Search here">
+
+                                  <button class="search-btn" style="height: 40px;
+  width: 100px;
+  background: #D10024;
+  color: #FFF;
+  font-weight: 700;
+  border: none;
+  border-radius: 0px 40px 40px 0px;" onclick="submits()" >搜索</button>
+                                  <%--</form>--%>
+                              </div>
+                          </div>
+                          <%--<form >--%>
+                          <div class="prices " >
+
+                              <ul class="hl1">
+
+                                  <li>
+                                      <%--<input class="hl" placeholder="¥"  type="hidden" name="lowprice" value="0" aria-label="价格最小值">--%>
+                                      <input class="hl" placeholder="¥" style="color: darkgray" name="lowprice" value="0" onfocus="valuechange(this)" onblur="valuechangeback(this)" type="text" aria-label="价格最小值">
+                                  </li>
+                                  <li class="sep" style="color: white">-</li>
+                                  <li>
+                                      <%--<input class="hl" placeholder="¥" type="hidden"   name="highprice" value="99999" aria-label="价格最大值">--%>
+                                      <input class="hl" placeholder="¥" style="color: darkgray" type="text" value="9999" onfocus="valuechange(this)" onblur="valuechangeback(this)"  name="highprice"   aria-label="价格最大值">
+
+                                  </li>
+
+                              </ul>
+                              <font color="#f0f8ff" style="margin-left: -170px">价格¥</font>
+                          </div>
+                          <%--</form>--%>
+                      </form>
+                      <!-- /SEARCH BAR -->
+
+                      <!-- ACCOUNT -->
+
+                      <!-- /ACCOUNT -->
+                  </div>
+                  <!-- row -->
+              </div>
+              <!-- container -->
+          </div>
+          <!-- /MAIN HEADER -->
+      </header>
+
+      <!-- /HEADER -->
+
+      <!-- NAVIGATION -->
+      <nav id="navigation">
           <!-- container -->
           <div class="container">
-              <!-- row -->
-              <div class="row">
-                  <!-- LOGO -->
-                  <div class="col-md-3">
-                      <div class="header-logo">
-                          <a href="#" class="logo">
-                              <img src="./img/logo.png" alt="">
-                          </a>
-                      </div>
-                  </div>
-                  <!-- /LOGO -->
-<form     action="">
-                  <!-- SEARCH BAR -->
-                  <div class="col-md-6">
-                      <div class="header-search">
-                          <form action="doSellerServlet"   id="form1">
-                              <select class="input-select">
-                                  <option value="1">生活类</option>
-                                  <option value="2">学习类</option>
-                                  <option value="3">办公类</option>
-                              </select>
-                              <input class="input"   name="shopname"  placeholder="Search here">
-                              <button class="search-btn" onclick="document.getElementById('form1').submit();" >搜索</button>
-                          </form>
-                      </div>
-                  </div>
-                  <form action="searchbypriceServlet.java" id="form2">
-                  <div class="prices " >
+              <!-- responsive-nav -->
+              <div id="responsive-nav">
+                  <!-- NAV -->
+                  <ul class="main-nav nav navbar-nav">
+                      <li class="active"><a href="main.jsp">Home</a></li>
+                      <li><a href="MainServlet?option=changeuser">修改信息</a></li>
+                      <li><a href="MainServlet?option=addshop">我要卖东西</a></li>
+                      <li><a href="MainServlet?option=seller">上架中的商品</a></li>
+                      <li><a href="MainServlet?option=order" >我的订单</a></li>
 
-                      <ul class="hl1">
-                          <li>
-                              <input class="hl" placeholder="¥" id="lowprice" type="text" value="" aria-label="价格最小值">
-                          </li>
-                          <li class="sep">-</li>
-                          <li>
-                              <input class="hl" placeholder="¥" type="text"  id="highprice" value="" aria-label="价格最大值">
-                          </li>
-                          <li class="submit">
-                              <button class="searchbt bordernon" type="button"   onclick="document.getElementById('form2').submit();">搜索</button>
-                          </li>
-                      </ul>
-
-
-
-
-                  </div>
-                  </form>
-</form>
-                  <!-- /SEARCH BAR -->
-
-                  <!-- ACCOUNT -->
-
-                  <!-- /ACCOUNT -->
+                  </ul>
+                  <!-- /NAV -->
               </div>
-              <!-- row -->
+              <!-- /responsive-nav -->
           </div>
-          <!-- container -->
-      </div>
-      <!-- /MAIN HEADER -->
-  </header>
-  <!-- /HEADER -->
-
-  <!-- NAVIGATION -->
-  <nav id="navigation">
-      <!-- container -->
-      <div class="container">
-          <!-- responsive-nav -->
-          <div id="responsive-nav">
-              <!-- NAV -->
-              <ul class="main-nav nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="MainServlet?option=user">个人信息</a></li>
-                  <li><a href="MainServlet?option=changeuser">修改信息</a></li>
-                  <li><a href="MainServlet?option=chat">联系管理员</a></li>
-                  <li><a href="MainServlet?option=seller">我要卖东西</a></li>
-                  <li><a href="MainServlet?option=order" >我的订单</a></li>
-
-              </ul>
-              <!-- /NAV -->
-          </div>
-          <!-- /responsive-nav -->
-      </div>
-      <!-- /container -->
-  </nav>
+          <!-- /container -->
+      </nav>
   <!-- /NAVIGATION -->
 
   <!-- SECTION -->
@@ -224,7 +251,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       <h3 class="title">新品</h3>
                       <div class="section-nav">
                           <ul class="section-tab-nav tab-nav">
-                              <li class="active"><a data-toggle="tab" href="#tab1">更多</a></li>
+                              <li class="active"><a  href="FirstPage">更多</a></li>
+
                               <!--<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>-->
                               <!--<li><a data-toggle="tab" href="#tab1">Cameras</a></li>-->
                               <!--<li><a data-toggle="tab" href="#tab1">Accessories</a></li>-->
@@ -232,6 +260,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       </div>
                   </div>
               </div>
+
               <!-- /section title -->
 
               <!-- Products tab & slick -->
@@ -258,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                               <span class="new">NEW</span>
                                           </div>
                                       </div>
-                                      <div class="product-body">
+                                      <div class="product-body" style="height: 94px">
                                           <p class="product-category"></p>
                                           <h3 class="product-name"><a href="#"><%=shop.getShopname() %></a></h3>
                                           <h4 class="product-price"><%=shop.getPrice() %></h4>
@@ -297,12 +326,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- /FOOTER -->
 
   <!-- jQuery Plugins -->
+  <script type="text/javascript">
+      function valuechange(x) {
+          x.style.color="balck";
+      }
+      function valuechangeback(x) {
+          x.style.color="darkgray";
+      }
+
+  </script>
   <script src="js2/jquery.min.js"></script>
   <script src="js2/bootstrap.min.js"></script>
   <script src="js2/slick.min.js"></script>
   <script src="js2/nouislider.min.js"></script>
   <script src="js2/jquery.zoom.min.js"></script>
   <script src="js2/main.js"></script>
+  <script src="js2/jingmoxukon.js"></script>
+      <script src=" assets/layui/layui.all.js"> </script>
 
   </body>
   <script type="text/javascript">

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./assets/layui/css/layui.css">
 <link rel="stylesheet" href="./assets/css/chat.css">
 <style>
-	
+
 </style>
 
 <div class="layui-container chat-body">
@@ -14,20 +14,20 @@
 		<div class="layui-col-md12 chat-toolbar">
 			<i class="layui-icon layui-icon-face-smile-fine chat-toolbar-icon"></i>
 			<i class="layui-icon layui-icon-picture-fine chat-toolbar-icon"></i>
-			<i class="layui-icon layui-icon-file chat-toolbar-icon"></i>  
+			<i class="layui-icon layui-icon-file chat-toolbar-icon"></i>
 			<i class="layui-icon layui-icon-voice chat-toolbar-icon"></i>
 			<i class="layui-icon layui-icon-video chat-toolbar-icon"></i>
 			<i class="layui-icon layui-icon-fonts-code chat-toolbar-icon"></i>
 			<i class="layui-icon layui-icon-log chat-toolbar-icon"></i>
 		</div>
 	</div>
-	
+
 	<div class="layui-row chat-toolbar-chatmain">
 		<div class="layui-col-md12">
 			<textarea name="chat-text" id="chat-text" rows="4" autofocus="true"></textarea>
-			<button class="layui-btn layui-btn layui-btn-normal chat-btn layui-btn-sm layui-layer-btn1"     onclick="send()">发送</button>
-			<button class="layui-btn layui-btn layui-btn-normal chat-btn layui-btn-sm layui-layer-btn0" onclick="closeWebSocket()">关闭</button>
-			
+			<button class="layui-btn layui-btn layui-btn-normal chat-btn layui-btn-sm layui-layer-btn1"     onclick="send()" value="发送">发送</button>
+			<button class="layui-btn layui-btn layui-btn-normal chat-btn layui-btn-sm layui-layer-btn0" onclick="closeWebSocket()" value="关闭">关闭</button>
+
 		</div>
 	</div>
 </div>
@@ -58,7 +58,7 @@
 
 	//连接关闭的回调方法
 	websocket.onclose = function () {
-	//	setMessageInnerHTML("WebSocket连接关闭");
+		//	setMessageInnerHTML("WebSocket连接关闭");
 	}
 
 	//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
@@ -93,6 +93,4 @@
 
 	}
 </script>
-
-
 

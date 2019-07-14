@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%
 	    int userid = (int)session.getAttribute("uid");
 		UserDao userdao =new UserDao();
-		List<User> list =userdao.queryUserAndType(userid);
+		List<User> list =userdao.queryUserbyid(userid);
 		for(User user:list){
 
   %>

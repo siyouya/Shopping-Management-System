@@ -25,19 +25,16 @@ public class personInfoServlet extends HttpServlet {
                 int userid =(int)session.getAttribute("uid");
                 String option=request.getParameter("option");
 
-
                 if(option.equals("dochangeuser")) {
                     String name = request.getParameter("name");
                     String password = request.getParameter("password");
                     int age = Integer.valueOf(request.getParameter("age"));
-                    int tel = Integer.valueOf(request.getParameter("tel"));
+                    String tel = request.getParameter("tel");
                     String address = request.getParameter("address");
                     UserDao userdao = new UserDao();
                     userdao.changeuser(name, password, age, tel, address, userid);
                     request.getRequestDispatcher("changeuser.jsp").forward(request, response);
-
                 }else if(option.equals("addshop")){
-
                     String picture=(String)session.getAttribute("picture");
                     String size=request.getParameter("size");
                     String detail=request.getParameter("detail");
@@ -45,17 +42,8 @@ public class personInfoServlet extends HttpServlet {
                     String shopname  = request.getParameter("shopname");
                     int shoptypename  = Integer.valueOf(request.getParameter("shoptypename"));
                     int price= Integer.valueOf(request.getParameter("price"));
-                    session.setAttribute("shopname",shopname);
-                    session.setAttribute("shoptypename",shoptypename);
-                    session.setAttribute("price",price);
                     ShopDao shopDao =new ShopDao();
                     shopDao.addShop(shopname,price,shoptypename,uid,detail,picture,size);
-                    UserDao userDao=new UserDao();
-                    Shop shop=shopDao.queryAllShop(uid);
-                    int shop1= shop.getBid();
-                    SellerDao sellerDao=new SellerDao();
-                    sellerDao.seller(uid,shopname,price,shop1);
-
                     request.getRequestDispatcher("seller.jsp").forward(request,response);
                 }
 

@@ -5,32 +5,16 @@ import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 
-import com.etc.entity.Shop;
+import com.etc.entity.*;
 
-import com.etc.util.DBUtil;
+import com.etc.util.*;
+
+
 
 public class ShopDao {
 
 	        DBUtil  dbutil  = new DBUtil();
-	
-			public Shop queryAllShop(int userid){
 
-					String sql  = "select * from shop where fuid =? ";
-					CachedRowSet crs = dbutil.Query(sql,userid);
-					Shop shop =new Shop();
-					try {
-						while(crs.next()){
-							int bid = crs.getInt("bid");
-							String shopname  = crs.getString("shopname");
-							int price   =crs.getInt("price");
-							int state   =crs.getInt("state");
-							shop  = new Shop(bid,shopname,price,state);
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					return shop;
-				}
 
 
 			public Shop queryidShop(int bid){
@@ -138,6 +122,7 @@ public class ShopDao {
 				   return result>0;
 
 			   }
+
 	public List<Shop> stateshop(int uid){
 
 		//步骤1：创建一个列表对象
@@ -145,8 +130,6 @@ public class ShopDao {
 		//sql语句
 		String sql  = "select * from shop  where fuid=?";
 		CachedRowSet crs   = dbutil.Query(sql,uid);
-
-
 		try {
 			while(crs.next()){
 				int bid = crs.getInt("bid");
@@ -167,37 +150,129 @@ public class ShopDao {
 	}
 
 
+//8种搜索
+            public List<Shop> allshop(){   /*List<Book> 泛型*/
+
+                //步骤1：创建一个列表对象
+                List<Shop> list  = new ArrayList<Shop>();
+                //sql语句
+                String sql  = "select * from shop     ";
+                CachedRowSet crs   = dbutil.Query(sql);
+                Shop shop=new Shop();
+                try {
+                    while(crs.next()){
+                        int bid=crs.getInt("bid");
+                        String shopname  = crs.getString("shopname");
+                        int price  =crs.getInt("price");
+                        String picture= crs.getString("picture");
+                        int state=crs.getInt("state");
+                        shop = new Shop(bid,shopname,price,picture,state);
+                        list.add(shop);
+                    }
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+                //步骤4:返回列表list
+                return list;
+            }
+    public List<Shop> Allshopbyprice(int lowprice ,int highprice){
+
+        //步骤1：创建一个列表对象
+        List<Shop> list  = new ArrayList<Shop>();
+        //sql语句
+        String sql  = "select * from shop  where   price between ?  and  ? ";
+        CachedRowSet crs   = dbutil.Query(sql,lowprice,highprice);
+        try {
+            while(crs.next()){
+                int bid=crs.getInt("bid");
+                String shopname  = crs.getString("shopname");
+                int price  =crs.getInt("price");
+                String picture= crs.getString("picture");
+                int state=crs.getInt("state");
+                Shop shop = new Shop(bid,shopname,price,picture,state);
+                list.add(shop);
+
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        //步骤4:返回列表list
+        return list;
+    }
 
 
 
-
-
-
-
-	public List<Shop> queryAllshopbyprice(String typeid ,String lowprice ,String highprice){
+	public List<Shop> queryAllshopbyprice(int typeid ,int lowprice ,int highprice){
 
 		//步骤1：创建一个列表对象
 		List<Shop> list  = new ArrayList<Shop>();
 		//sql语句
 		String sql  = "select * from shop  where typeid = ? and  price between ?  and  ? ";
 		CachedRowSet crs   = dbutil.Query(sql,typeid,lowprice,highprice);
-
-
 		try {
 			while(crs.next()){
-				int bid = crs.getInt("bid");
-				String shopname  = crs.getString("shopname");
-				int price   =crs.getInt("price");
-
-				Shop shop  = new Shop(bid, shopname,price);
-
-				list.add(shop);
-
+                int bid=crs.getInt("bid");
+                String shopname  = crs.getString("shopname");
+                int price  =crs.getInt("price");
+                String picture= crs.getString("picture");
+                int state=crs.getInt("state");
+                Shop shop = new Shop(bid,shopname,price,picture,state);
+                list.add(shop);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		//步骤4:返回列表list
+		return list;
+	}
 
+    public List<Shop> queryAllshopbypriceandshopname(String likeshopname ,int lowprice ,int highprice){
+
+        //步骤1：创建一个列表对象
+        List<Shop> list  = new ArrayList<Shop>();
+        //sql语句
+        String sql  = "select * from shop  where shopname like   ?  and  price between ?  and  ? ";
+        CachedRowSet crs   = dbutil.Query(sql,"%"+likeshopname+"%",lowprice,highprice);
+        Shop shop=new Shop();
+        try {
+            while(crs.next()){
+                int bid=crs.getInt("bid");
+                String shopname  = crs.getString("shopname");
+                int price  =crs.getInt("price");
+                String picture= crs.getString("picture");
+                int state=crs.getInt("state");
+                shop = new Shop(bid,shopname,price,picture,state);
+                list.add(shop);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        //步骤4:返回列表list
+        return list;
+    }
+
+	public List<Shop> queryAllshopbypriceandshopnameandtype(String likeshopname ,int lowprice ,int highprice,int typeid){
+
+		//步骤1：创建一个列表对象
+		List<Shop> list  = new ArrayList<Shop>();
+		//sql语句
+		String sql  = "select * from shop  where shopname like   ?  and  price between ?  and  ?  and typeid=? ";
+		CachedRowSet crs   = dbutil.Query(sql,"%"+likeshopname+"%",lowprice,highprice,typeid);
+		Shop shop=new Shop();
+		try {
+			while(crs.next()){
+				int bid=crs.getInt("bid");
+				String shopname  = crs.getString("shopname");
+				int price  =crs.getInt("price");
+				String picture= crs.getString("picture");
+				int state=crs.getInt("state");
+				shop = new Shop(bid,shopname,price,picture,state);
+				list.add(shop);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		//步骤4:返回列表list
 		return list;
 	}
@@ -233,5 +308,83 @@ public class ShopDao {
 		//步骤4:返回列表list
 		return list;
 	}
+    public List<Shop> queryAllshopLikeNameandtype(String likeshopname,int typeid){   /*List<Book> 泛型*/
 
-}
+        //步骤1：创建一个列表对象
+        List<Shop> list  = new ArrayList<Shop>();
+        //sql语句
+        String sql  = "select * from shop  where shopname like   ?   AND  typeid=? ";
+        CachedRowSet crs   = dbutil.Query(sql,"%"+likeshopname+"%",typeid);
+        Shop shop=new Shop();
+        try {
+            while(crs.next()){
+                int bid=crs.getInt("bid");
+                String shopname  = crs.getString("shopname");
+                int price  =crs.getInt("price");
+                String picture= crs.getString("picture");
+                int state=crs.getInt("state");
+                shop = new Shop(bid,shopname,price,picture,state);
+                list.add(shop);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        //步骤4:返回列表list
+        return list;
+    }
+
+
+
+	public List<Shop> querybypage(int start){   /*List<Book> 泛型*/
+
+		//步骤1：创建一个列表对象
+		List<Shop> list  = new ArrayList<Shop>();
+		//sql语句
+		String sql  = "select * from shop where state=0  limit ?,12 ";
+		CachedRowSet crs   = dbutil.Query(sql,start);
+
+		Shop shop=new Shop();
+		try {
+			while(crs.next()){
+
+				int bid=crs.getInt("bid");
+				String shopname  = crs.getString("shopname");
+				int price  =crs.getInt("price");
+				String picture= crs.getString("picture");
+				int state=crs.getInt("state");
+				shop = new Shop(bid,shopname,price,picture,state);
+				list.add(shop);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		//步骤4:返回列表list
+		return list;
+	}
+
+
+	public int findcount(){
+
+				String sql="select * from shop where state=0 ";
+				int count=0;
+				CachedRowSet crs=dbutil.Query(sql);
+				try{
+
+					while(crs.next()){
+
+						count++;
+					}
+
+				}catch (Exception e){
+
+				}
+
+
+				return count;
+	}
+
+
+
+	}
+
+

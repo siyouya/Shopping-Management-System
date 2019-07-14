@@ -2,8 +2,7 @@
 <!-- 导包 -->
 <%@ page import="com.etc.dao.ShopDao" %>
 <%@ page import="com.etc.dao.UserDao" %>
-<%@ page import="com.etc.entity.Seller" %>
-<%@ page import="com.etc.dao.SellerDao" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";

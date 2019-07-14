@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        int userid = (int)session.getAttribute("uid");
        UserDao  userdao  = new UserDao();
        //调用查询方法
-      List<User> list  =  userdao.queryUserAndType(userid);
+      List<User> list  =  userdao.queryUserbyid(userid);
     //遍历列表信息
 
     for(User user:list){

@@ -77,14 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                 %>
               <div class="layui-form" style="margin-left: -2  0px">
-                  <%--<div class="layui-form-item">
-                      <%--<label class="layui-form-label">&nbsp;&nbsp;商品名</label>--%>
-                      <%--<input class="layui-form-label" style="width: 150px" type="text"  name="shopname" id="shopname" %>--%>
-                  <%--</div>--%>
-              <%--</div>--%>
-                  <%--<div class="layui-card-body" style="font-size: 10px;color: red">--%>
-                      <%--已经是凉了</div>--%>
-                  <%--<div class="layui-card-body">--%>
+
                       <form class="layui-form" action="personInfoServlet?option=addshop" method="post"    id="form1" style="margin-left: -20px">
                           <div class="layui-form-item">
                               <label class="layui-form-label"    >&nbsp;&nbsp;商品名</label>
